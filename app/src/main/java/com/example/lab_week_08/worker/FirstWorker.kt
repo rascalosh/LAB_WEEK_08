@@ -6,7 +6,6 @@ import androidx.work.Worker
 import androidx.work.WorkerParameters
 
 
-
 class FirstWorker(
     context: Context, workerParams: WorkerParameters
 ) : Worker(context, workerParams) {
@@ -15,15 +14,12 @@ class FirstWorker(
     override fun doWork(): Result {
         //Get the parameter input
         val id = inputData.getString(INPUT_DATA_ID)
-
         //Sleep the process for 3 seconds
         Thread.sleep(3000L)
-
         //Build the output based on process result
         val outputData = Data.Builder()
             .putString(OUTPUT_DATA_ID, id)
             .build()
-
         //Return the output
         return Result.success(outputData)
     }
